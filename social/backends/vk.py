@@ -128,6 +128,9 @@ class VKOAuth2(BaseOAuth2):
 class VKAppOAuth2(VKOAuth2):
     """VK.com Application Authentication support"""
     name = 'vk-app'
+    
+    def user_data(self, access_token, *args, **kwargs):
+        return self.data
 
     def user_profile(self, user_id, access_token=None):
         request_data = ['first_name', 'last_name', 'screen_name', 'nickname',
